@@ -1,0 +1,42 @@
+# Pi Audio Renderer Configuration
+
+device:
+  # Friendly name shown in DLNA apps
+  name: "Raspberry Pi Audio Renderer"
+  manufacturer: "Custom"
+  model_name: "Pi Audio Renderer"
+  model_number: "1.0"
+  serial_number: "RPI2-001"
+  uuid: "12345678-1234-1234-1234-123456789012"  # Change this to a unique UUID
+
+network:
+  # Network interface to use (eth0 for Raspberry Pi 2)
+  interface: "eth0"
+  # HTTP server port for device description and SOAP requests
+  http_port: 8000
+  # SSDP multicast settings
+  ssdp_multicast_ip: "239.255.255.250"
+  ssdp_port: 1900
+  # SSDP announcement interval (seconds)
+  announce_interval: 30
+
+audio:
+  # mpv player settings
+  mpv_ipc_socket: "/tmp/mpv-socket"
+  # Initial volume (0-100)
+  default_volume: 50
+  # Audio output driver (auto, alsa, pulse)
+  output_driver: "alsa"
+  # Buffer settings
+  cache: true
+  demuxer_max_bytes: "2M"
+
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  # Log file path
+  file: "renderer.log"
+  # Max log file size (MB)
+  max_size_mb: 10
+  # Number of backup log files
+  backup_count: 3

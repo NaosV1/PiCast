@@ -1,0 +1,78 @@
+# Pi Audio Renderer Configuration Example
+# Copy this file to config.yaml and customize as needed
+
+device:
+  # Friendly name shown in DLNA apps
+  # Examples: "Living Room Audio", "Bedroom Speaker", "Kitchen Radio"
+  name: "Raspberry Pi Audio Renderer"
+
+  manufacturer: "Custom"
+  model_name: "Pi Audio Renderer"
+  model_number: "1.0"
+  serial_number: "RPI2-001"
+
+  # IMPORTANT: Generate a unique UUID for each device
+  # Run: python3 -c "import uuid; print(uuid.uuid4())"
+  # Then paste the output here
+  uuid: "12345678-1234-1234-1234-123456789012"
+
+network:
+  # Network interface to use
+  # Raspberry Pi 2 uses eth0 (Ethernet)
+  # Check with: ip addr
+  interface: "eth0"
+
+  # HTTP server port for device description and SOAP requests
+  # Default: 8000
+  # Change if port conflict occurs
+  http_port: 8000
+
+  # SSDP multicast settings (usually don't change)
+  ssdp_multicast_ip: "239.255.255.250"
+  ssdp_port: 1900
+
+  # How often to announce presence (seconds)
+  # Default: 30
+  announce_interval: 30
+
+audio:
+  # mpv player IPC socket path
+  # Default: /tmp/mpv-socket
+  mpv_ipc_socket: "/tmp/mpv-socket"
+
+  # Initial volume level (0-100)
+  # Default: 50
+  default_volume: 50
+
+  # Audio output driver
+  # Options: alsa, pulse, auto
+  # Default: alsa (best for Raspberry Pi)
+  output_driver: "alsa"
+
+  # Enable caching for network streams
+  # Default: true
+  cache: true
+
+  # Maximum cache size
+  # Default: 2M (2 megabytes)
+  # Increase for slower connections: "4M" or "8M"
+  demuxer_max_bytes: "2M"
+
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  # Default: INFO
+  # Use DEBUG for troubleshooting
+  level: "INFO"
+
+  # Log file path
+  # Default: renderer.log (in current directory)
+  file: "renderer.log"
+
+  # Maximum log file size in megabytes
+  # Files are rotated when this size is reached
+  # Default: 10 MB
+  max_size_mb: 10
+
+  # Number of backup log files to keep
+  # Default: 3 (keeps renderer.log.1, .2, .3)
+  backup_count: 3
