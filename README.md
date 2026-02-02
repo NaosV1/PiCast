@@ -59,7 +59,7 @@ speaker-test -t wav -c 2
 ```bash
 # Clone repository
 cd /home/pi
-git clone <your-repo-url> dlna-renderer
+git clone https://github.com/NaosV1/PiCast dlna-renderer
 cd dlna-renderer
 
 # Install Python dependencies
