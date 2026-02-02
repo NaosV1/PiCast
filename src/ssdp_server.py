@@ -8,7 +8,7 @@ import struct
 import threading
 import time
 import logging
-from typing import Optional
+from typing import Optional, Any
 
 
 class SSDPServer:
